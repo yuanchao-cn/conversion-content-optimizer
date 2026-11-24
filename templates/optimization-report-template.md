@@ -94,9 +94,9 @@
 
 > 原「知识源」与「依据来源」两个附录合并精简，只保留必要信息。
 
-- Skill 基线版本：v1.9.4
+- Skill 基线版本：v1.9.5
 - 云端增量：已取到（版本 <version>）/ 未取到（fallback：<原因>）
-- 方法论：`methodology.md` 基线条款 + `emerging-knowhow.md`（新观点优先；战略层见第十二节、表达层 N1–N20、评论区见第十三节/N21，命中项注明编号）+ `education-content.md`（仅教育行业，E1–E9，命中项注明编号）
+- 方法论：`methodology.md` 基线条款 + `emerging-knowhow.md`（战略层见第十二节、表达层 N1–N20、评论区见第十三节/N21）+ `methodology-refresh-2026.md`（战略层补充见第一节、N22–N29；冲突优先级 refresh-2026 > emerging-knowhow > 基线）+ `education-content.md`（仅教育行业，E1–E9，命中项注明编号）
 - 案例：<包内索引/云端快照的案例 ID，无则写「未使用案例，按基线方法论检查」>
 - 私有案例层：本次对标使用 / 未使用（**仅抽象编号入报告，不展示案例可识别信息**）
 

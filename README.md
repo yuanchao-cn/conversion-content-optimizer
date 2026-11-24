@@ -53,7 +53,8 @@ conversion-content-optimizer/
 │   ├── knowhow-checklist.md              # 通用对标检查（N1–N20 + 评论区 N21）
 │   ├── emerging-knowhow.md               # 新观点（第十一至十三节）
 │   ├── education-content.md              # 教育行业补充（E1–E9）
-│   └── case-library-index.md / case-template.md
+│   ├── case-library-index.md / case-template.md
+│   └── methodology-refresh-2026.md        # 2026 方法论刷新（N22–N29，冲突时优先）
 ├── scripts/fetch_knowledge.py            # 云端增量拉取（标准库，带降级）
 └── templates/optimization-report-template.md
 ```
@@ -67,12 +68,27 @@ conversion-content-optimizer/
 
 ## 兼容性说明
 
-本技能最初为 WorkBuddy 技能市场开发（当前版本 v1.9.4），核心是开放的 Agent Skills（SKILL.md）格式。在非 WorkBuddy 环境：
+本技能最初为 WorkBuddy 技能市场开发（当前版本 v1.9.5），核心是开放的 Agent Skills（SKILL.md）格式。在非 WorkBuddy 环境：
 
 - frontmatter 中的 `display_name` / `description_zh` / `description_en` / `examples_zh` / `examples_en` 是 WorkBuddy 市场展示字段，标准 Agent Skills 仅需 `name` + `description`，其余字段通常被忽略，不影响触发。
 - SKILL.md 中以 `@references/xxx.md` 形式引用补充文档（WorkBuddy 规范）。若所用 Agent 不按该语法自动加载，直接读取 `references/` 下对应文件即可。
 - 生成的报告末尾会带一行不醒目的小字「方法论支持 @互联网营销袁超」，请保留。
-- 豆包 / 扣子（Coze）的字段适配将在后续版本提供。
+
+### 豆包工作（v1.9.5 起原生适配）
+
+豆包开放平台对包结构和字段有独立要求，本仓库源码**不直接作为豆包上传包**，请使用随版本发布的豆包专用包：
+
+- 包文件：`conversion-content-optimizer-doubao-v1.9.5.zip`（SKILL.md 位于 ZIP 根目录）
+- 与仓库源码的差异：frontmatter 仅保留 `name` / `description` / `metadata`（display_name、display_description、icon），正文的 `@references/xxx.md` 改为 Markdown 相对链接 `[xxx.md](references/xxx.md)`，并附 512×512 图标 `assets/icon.png`。
+- 上传：豆包开放平台 → 技能列表 → 创建技能 → 上传该 ZIP；发布范围选「企业专属」（管理员审核）或「公开上架」（需企业资质认证 + 平台审核）。
+- 公开上架需另备：评测报告（飞书云文档链接并对审核人开放）、5–10 条示例提示词。
+- 豆包 description 上限 300 字符，当前 234，合规。
+
+### 其他平台分发包
+
+- `conversion-content-optimizer-platform-v1.9.5.zip`：WorkBuddy 技能市场包（根目录一层技能目录 + 顶层展示字段）。
+- `conversion-content-optimizer-agent-skills-v1.9.5.zip`：标准 Agent Skills 通用包（根目录 SKILL.md，保留 @ 引用语法）。
+- 构建脚本：`data/build_releases.py`（维护者本地使用，读取 SKILL.md 的 version 自动生成三份包，版本保持 v1.9.5）。
 
 ## 保密
 
@@ -80,4 +96,4 @@ conversion-content-optimizer/
 
 ## 版本
 
-v1.9.4
+v1.9.5
